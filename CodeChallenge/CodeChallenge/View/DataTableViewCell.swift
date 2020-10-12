@@ -13,17 +13,19 @@ class DataTableViewCell: UITableViewCell {
     var data:Info? {
         didSet {
             guard let dataItem = data else {return}
-             dateLabel.text = " "
+            dateLabel.text = "NA"
+            detailLabel.text = "NA"
             if let date = dataItem.date {
-                dateLabel.text = " \(date) "
+                dateLabel.text = date.count>0 ? " \(date) " : "NA"
             }
             if let data = dataItem.data {
                 if dataItem.type == "image" {
                     print(dataItem.data!)
+                    detailLabel.text = " "
                     let imageString = dataItem.data ?? ""
                     self.profileImageView.sd_setImage(with: URL(string: imageString), placeholderImage: UIImage(named: "placeholder"))
                 } else {
-                    detailLabel.text = data
+                    detailLabel.text = data.count>0 ? " \(data) " : " "
                 }
             }
         }
@@ -81,7 +83,7 @@ class DataTableViewCell: UITableViewCell {
         containerView.leadingAnchor.constraint(equalTo:self.profileImageView.trailingAnchor, constant:10).isActive = true
         containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
         containerView.bottomAnchor.constraint(equalTo:self.contentView.bottomAnchor, constant:-10).isActive = true
-
+        
         detailLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor, constant:10).isActive = true
         detailLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
         detailLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor, constant:20).isActive = true

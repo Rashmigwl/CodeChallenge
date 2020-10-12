@@ -16,9 +16,9 @@ class DetailViewController: UIViewController {
             dateLabel.text = "NA"
             detailLabel.text = "NA"
             dataLabel.text = "NA"
-
+            
             if let date = dataItem.date  {
-                 dateLabel.text = date.count > 0 ? "\(date)" : "NA"
+                dateLabel.text = date.count > 0 ? "\(date)" : "NA"
             }
             if let id = dataItem.id {
                 dataLabel.text = id.count > 0 ? "\(id)" : "NA"
@@ -55,7 +55,7 @@ class DetailViewController: UIViewController {
         } else {
             containerView.topAnchor.constraint(equalTo:self.view.topAnchor, constant:90).isActive = true
         }
-
+        
         containerView.centerYAnchor.constraint(equalTo:self.view.centerYAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo:self.view.leadingAnchor, constant:20).isActive = true
         containerView.trailingAnchor.constraint(equalTo:self.view.trailingAnchor, constant:-20).isActive = true
@@ -63,19 +63,19 @@ class DetailViewController: UIViewController {
         detailLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor).isActive = true
         detailLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
         detailLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor, constant:10).isActive = true
-
+        
         dateLabel.leadingAnchor.constraint(equalTo:self.dateLabelStatic.trailingAnchor, constant:10).isActive = true
         dateLabel.topAnchor.constraint(equalTo:self.detailLabel.bottomAnchor, constant:10).isActive = true
         
         dateLabelStatic.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
         dateLabelStatic.topAnchor.constraint(equalTo:self.detailLabel.bottomAnchor, constant:10).isActive = true
-
+        
         idLabelStatic.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
         idLabelStatic.topAnchor.constraint(equalTo:self.dateLabel.bottomAnchor, constant:8).isActive = true
         
         dataLabel.topAnchor.constraint(equalTo:self.dateLabel.bottomAnchor, constant:8).isActive = true
         dataLabel.leadingAnchor.constraint(equalTo:self.idLabelStatic.trailingAnchor, constant:10).isActive = true
-
+        
     }
     
     let containerView:UIView = {

@@ -11,7 +11,7 @@ import Alamofire
 import RealmSwift
 
 class DataAPI {
-
+    
     func doRequest( completion: @escaping (Any?, Error?) -> ()) {
         let request = AF.request("https://raw.githubusercontent.com/AxxessTech/Mobile-Projects/master/challenge.json").response { response in
             debugPrint("Response: \(response.result)")
@@ -45,8 +45,8 @@ class DataAPI {
     }
     
     func getImg (url:String,completion: @escaping (Data?, Error?) -> ()) {
-       AF.request( url,method: .get).response{ response in
-           switch response.result {
+        AF.request( url,method: .get).response{ response in
+            switch response.result {
             case .success(let responseData):
                 completion(responseData, nil)
             case .failure(let error):
@@ -55,5 +55,5 @@ class DataAPI {
             }
         }
     }
-   
+    
 }
